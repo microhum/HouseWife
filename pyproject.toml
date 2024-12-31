@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "wife-music-bot"
+version = "0.1.0"
+description = "Multi-Usage Discord Bot For Being Your House Wife."
+authors = ["microhum <Guntee12123@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+py-cord = {extras = ["speed"], version = "^2.6.1"}
+python-dotenv = "^1.0.1"
+wavelink = "^3.4.1"
+pillow = "^11.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
