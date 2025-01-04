@@ -28,6 +28,10 @@ class Music(commands.Cog):
                     "songrunningout": "https://soundcloud.com/vermil-1554451/songrun",
                     "sawadeeka": "https://soundcloud.com/vermil-1554451/sawadeeka"
                  },
+                 "hello":
+                 {
+                     "hello": "https://soundcloud.com/vermil-1554451/playwelcome",
+                 }
             }
 
             sounds = category_map.get(category, None)
@@ -43,7 +47,7 @@ class Music(commands.Cog):
                 return
 
             track = tracks[0]
-            await player.queue.put_wait(track)
+            await player.play(track, add_history=False, volume=70)
 
         except Exception as e:
             logging.error(f"Failed to play sound: {e}")
@@ -55,7 +59,7 @@ class Music(commands.Cog):
     @commands.Cog.listener()
     async def on_wavelink_track_start(self, payload: wavelink.TrackStartEventPayload) -> None:
         player: wavelink.Player | None = payload.player
-        if not player:
+        if not player.home:
             # Handle edge cases...
             return
 
@@ -104,7 +108,7 @@ class Music(commands.Cog):
         if not player:
             try:
                 player = await ctx.author.voice.channel.connect(cls=wavelink.Player)  # type: ignore
-                await self.play_random_sound(player, "inactive")
+                await self.play_random_sound(player, "hello")
 
             except AttributeError:
                 await ctx.send("Please join a voice channel first before using this command.")
@@ -264,13 +268,13 @@ class Music(commands.Cog):
             song_title = player.current.title
 
         try:
-            await ctx.send(f"Searching for lyrics of {song_title}...")
+            await ctx.send(f"Searching for lyrics of `{song_title}`...")
             song = self.genius.search_song(song_title)
             if song:
-                embed = discord.Embed(title=f"Lyrics for {song.title} by {song.artist}", description=song.lyrics[:4096])
+                embed = discord.Embed(title=f"Lyrics for `{song.title}` by `{song.artist}`", description=song.lyrics[:4096])
                 await ctx.send(embed=embed)
             else:
-                await ctx.send(f"Could not find lyrics for {song_title}.")
+                await ctx.send(f"Could not find lyrics for `{song_title}`.")
         except Exception as e:
             await ctx.send(f"An error occurred while fetching lyrics: {e}")
 
