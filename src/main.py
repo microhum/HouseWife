@@ -6,8 +6,8 @@ from dotenv import load_dotenv
 from client import Bot
 from music.music import Music
 
-bot: Bot = Bot(GENIUS_TOKEN=os.getenv("GENIUS_TOKEN"))
-bot.add_cog(Music(bot))
+bot: Bot = Bot()
+bot.add_cog(Music(bot, GENIUS_TOKEN=os.getenv("GENIUS_TOKEN")))
 
 @bot.event
 async def on_command_error(ctx: commands.Context, error: commands.CommandError) -> None:
