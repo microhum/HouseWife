@@ -8,10 +8,8 @@ plugins:
     # Youtube Plugins 
     youtube:
       pot:
-        # token: "${YOUTUBE_POT_TOKEN}"
-        # visitorData: "${YOUTUBE_POT_VISITOR_DATA}"
-        token: "MnR4gEJ22axUMHi44jEQ8EQmLvbhgt4kGN24nvEp7r34_SDFD5LkOeeCZErzNuFu94GYkWXYUru-Q5TFKcFYOVX8J8p-tPdJcY9QBMQrZfa6wqURh9jQy8yfqAlHIZH_CzWz_hPDSN-35Ygq6ngx1fAaWv3rhg=="
-        visitorData: "CgtXa2pvRTZkbnlPYyjm5pG8BjIKCgJUSBIEGgAgYw%3D%3D"
+        token: "${YOUTUBE_POT_TOKEN}"
+        visitorData: "${YOUTUBE_POT_VISITOR_DATA}"
       enabled: true # Whether this source can be used.
       allowSearch: true # Whether "ytsearch:" and "ytmsearch:" can be used.
       allowDirectVideoIds: true # Whether just video IDs can match. If false, only complete URLs will be loaded.
