@@ -1,19 +1,16 @@
-[tool.poetry]
+[project]
+authors = [
+    {name = "microhum", email = "Guntee12123@gmail.com"},
+]
 name = "wife-music-bot"
 version = "0.1.0"
 description = "Multi-Usage Discord Bot For Being Your House Wife."
-authors = ["microhum <Guntee12123@gmail.com>"]
 readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.10"
-
-python-dotenv = "^1.0.1"
-wavelink = "^3.4.1"
-py-cord = {extras = ["speed"], version = "^2.6.1"}
-lyricsgenius = "^3.2.0"
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires-python = ">=3.10"
+dependencies = [
+    "lyricsgenius>=3.2.0",
+    "py-cord[speed]>=2.6.1",
+    "python-dotenv>=1.0.1",
+    "pyyaml>=6.0.2",
+    "wavelink>=3.4.1",
+]
