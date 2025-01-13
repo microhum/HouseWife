@@ -1,3 +1,6 @@
+#  yaml
+lavalink/application.yml
+
 *.log
 
 # Byte-compiled / optimized / DLL files
