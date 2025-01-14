@@ -8,7 +8,6 @@ from music.music import Music
 from wsgi import keep_alive
 
 bot: Bot = Bot()
-bot.add_cog(Music(bot, GENIUS_TOKEN=os.getenv("GENIUS_TOKEN")))
 
 @bot.event
 async def on_command_error(ctx: commands.Context, error: commands.CommandError) -> None:
@@ -22,6 +21,7 @@ async def main() -> None:
     keep_alive()
     async with bot:
         load_dotenv()
+        bot.add_cog(Music(bot, GENIUS_TOKEN=os.getenv("GENIUS_TOKEN")))
         await bot.start(token=os.getenv("DISCORD_TOKEN"))
 
        

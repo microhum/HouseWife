@@ -13,9 +13,14 @@ class Bot(commands.Bot):
         # Ensure log directory exists
         os.makedirs("log", exist_ok=True)
         
+        # logging.basicConfig(filename="log/bot.log", level=logging.INFO, filemode="a", format="%(asctime)s:%(levelname)s:%(name)s: %(message)s")
+        # logging.getLogger().addHandler(logging.StreamHandler())
         # Logging setup
-        logging.basicConfig(filename="log/bot.log", level=logging.INFO, filemode="a", format="%(asctime)s:%(levelname)s:%(name)s: %(message)s")
+        logging.basicConfig(level=logging.INFO, format="%(asctime)s:%(levelname)s:%(name)s: %(message)s")
         logging.getLogger().addHandler(logging.StreamHandler())
+        
+        # Override logging to print to console
+        logging.info = print
         
         super().__init__(command_prefix="w!", intents=intents)
     
