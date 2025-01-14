@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Load YAML file
-with open('lavalink/application_template.yml', 'r') as file:
+with open('../lavalink/application_template.yml', 'r') as file:
     config = yaml.safe_load(file)
 
 # Replace placeholders in YAML with environment variables
