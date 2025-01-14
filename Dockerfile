@@ -16,4 +16,4 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 COPY --chown=user . /app
 
 RUN chmod +x ./run.sh
-CMD ["sh", "-c", "./run.sh & sleep 200 && python3 src/main.py"]
+CMD ["sh", "-c", "./run.sh"]
