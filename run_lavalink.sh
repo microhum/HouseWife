@@ -1,9 +1,9 @@
 
 (
-if [[ "$OS" == "Windows_NT" ]]; then
-    python tools/loadenv_yaml.py
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    python3 loadenv_yaml.py
 else
-    python3 tools/loadenv_yaml.py
+    python loadenv_yaml.py
 fi
 cd lavalink
 java -jar Lavalink.jar
