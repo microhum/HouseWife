@@ -5,6 +5,7 @@ from discord.ext import commands
 from dotenv import load_dotenv
 from client import Bot
 from music.music import Music
+from wsgi import keep_alive
 
 bot: Bot = Bot()
 bot.add_cog(Music(bot, GENIUS_TOKEN=os.getenv("GENIUS_TOKEN")))
@@ -18,6 +19,7 @@ async def on_command_error(ctx: commands.Context, error: commands.CommandError) 
         logging.error("An error occurred: %s", error)
 
 async def main() -> None:
+    keep_alive()
     async with bot:
         load_dotenv()
         await bot.start(token=os.getenv("DISCORD_TOKEN"))
