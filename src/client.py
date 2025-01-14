@@ -10,6 +10,9 @@ class Bot(commands.Bot):
         intents: discord.Intents = discord.Intents.default()
         intents.message_content = True
         
+        # Ensure log directory exists
+        os.makedirs("log", exist_ok=True)
+        
         # Logging setup
         logging.basicConfig(filename="log/bot.log", level=logging.INFO, filemode="a", format="%(asctime)s:%(levelname)s:%(name)s: %(message)s")
         logging.getLogger().addHandler(logging.StreamHandler())
