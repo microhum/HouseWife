@@ -1,7 +1,12 @@
-FROM python:3.10.9-slim-buster
+FROM ubuntu:22.04
 
-# Install dependencies
-RUN apt-get update && apt-get install -y default-jdk && apt-get clean
+# Install Python and other dependencies
+RUN apt-get update && apt-get install -y \
+    python3.10 \
+    python3-pip \
+    openjdk-23-jdk \
+    && apt-get clean
+
 RUN useradd -m -u 1000 user
 USER user
 ENV PATH="/home/user/.local/bin:$PATH"
