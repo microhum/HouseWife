@@ -1,5 +1,8 @@
 FROM python:3.10.9-slim-buster
-RUN apt-get update && apt-get install -y openjdk-17-jdk && apt-get clean
+
+# Install dependencies
+RUN apt-get update && apt-get install -y software-properties-common && add-apt-repository ppa:openjdk-r/ppa
+RUN apt-get update && apt-get install -y openjdk-23-jdk && apt-get clean
 RUN useradd -m -u 1000 user
 USER user
 ENV PATH="/home/user/.local/bin:$PATH"
