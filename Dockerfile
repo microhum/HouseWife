@@ -15,5 +15,6 @@ COPY --chown=user ./requirements.txt requirements.txt
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 COPY --chown=user . /app
 
+EXPOSE 2333
 RUN chmod +x ./run.sh
 CMD ["sh", "-c", "./run.sh"]

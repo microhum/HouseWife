@@ -22,6 +22,7 @@ async def main() -> None:
     async with bot:
         load_dotenv()
         bot.add_cog(Music(bot, GENIUS_TOKEN=os.getenv("GENIUS_TOKEN")))
+        print("Music Cog Loaded")
         await bot.start(token=os.getenv("DISCORD_TOKEN"))
 
        
