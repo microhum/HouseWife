@@ -5,6 +5,8 @@ if [[ "$OS" == "Windows_NT" ]]; then
 else
     python3 tools/loadenv_yaml.py
 fi
-cd lavalink
-java -jar Lavalink.jar
+(cd lavalink && java -jar Lavalink.jar) &
+sleep 200
+python3 src/main.py
 )
+

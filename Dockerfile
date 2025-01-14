@@ -14,6 +14,5 @@ WORKDIR /app
 COPY --chown=user ./requirements.txt requirements.txt
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 COPY --chown=user . /app
-RUN chmod +x run_lavalink.sh
 
-CMD ["sh", "-c", "./run_lavalink.sh & sleep 200 && python3 src/main.py"]
+CMD ["sh", "-c", "./run.sh"]
