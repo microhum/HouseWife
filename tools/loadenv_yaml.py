@@ -31,6 +31,7 @@ replace_placeholders(config)
 # Check for production mode and change address if needed
 if os.getenv('MODE', 'production') == 'production':
     if 'server' in config and 'address' in config['server']:
+        print("Production mode detected, changing Lavalink server address to 127.0.0.1")
         config['server']['address'] = '127.0.0.1'
 
 # Save the updated YAML file
